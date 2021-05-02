@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "type": "shirt",
+      "img": "shirt",
+      "price": 100000,
+      "name": "Футболка мужская красная",
+      "brand": "Lamborghiny",
+      "discount": 0
+    },
+    {
+      "id": 2,
+      "type": "jeans",
+      "img": "jeans",
+      "price": 3000,
+      "name": "Джинсы зауженные",
+      "brand": "Dolche Gabana",
+      "discount": 50
+    },
+    {
+      "id": 3,
+      "type": "shirt",
+      "img": "shirt",
+      "price": 2000,
+      "name": "Футболка мужская красная",
+      "brand": "Lamborghiny",
+      "discount": 0
+    },
+    {
+      "id": 4,
+      "type": "shirt",
+      "img": "shirt",
+      "price": 2000,
+      "name": "Футболка мужская красная",
+      "brand": "Lamborghiny",
+      "discount": 50
+    },
+    {
+      "id": 5,
+      "type": "shirt",
+      "img": "shirt",
+      "price": 100000,
+      "name": "Футболка мужская красная",
+      "brand": "Lamborghiny",
+      "discount": 0
+    }
+  ]
+}
