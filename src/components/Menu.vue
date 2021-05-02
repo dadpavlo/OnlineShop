@@ -3,17 +3,26 @@
       <div id = "menu" class = "menu">
           <div class="content">
               <p class="category">Все товары</p>
-              <p class="category">Футболки</p>
-              <p class="category">Штаны</p>
+              <CategoryItem
+              v-for = "category in getProductCategory" :key="category.id"
+              :category = "category"
+              />
           </div>
       </div>
   </header>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import CategoryItem from './CategoryItem';
+
 export default {
   name: 'Menu',
   components: {
+      CategoryItem
+  },
+  computed: {
+      ...mapGetters(['getProductCategory'])
   }
 }
 </script>

@@ -1,19 +1,17 @@
 <template>
   <div id="app">
     <Menu/>
-    <all-products/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import AllProducts from './pages/AllProducts.vue';
 import Menu from './components/Menu.vue';
 
 
 export default {
   name: 'App',
   components: {
-    AllProducts,
     Menu
   },
 }
