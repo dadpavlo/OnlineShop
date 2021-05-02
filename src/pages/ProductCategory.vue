@@ -6,7 +6,7 @@
             </div>
             <div class="all__products">
                 <product-item
-                v-for="product in getProducts" :key="product.id"
+                v-for="product in getCategoryProducts" :key="product.id"
                 :product = "product"
                 />
             </div>
@@ -15,19 +15,21 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import ProductItem from '../components/ProductItem.vue';
 export default {
     components: {
         ProductItem
     },
-    async created() {
-    this.$store.dispatch('fetchProducts')
+    async mounted() {
+       await this.$store.dispatch('fetchProducts')
+        this.categoryProducts(this.$route.params.type)
     }, 
     methods: {
+        ...mapMutations(['categoryProducts'])
     },
     computed: {
-        ...mapGetters(['getProducts'])
+        ...mapGetters(['getCategoryProducts'])
     }
 }
 </script>

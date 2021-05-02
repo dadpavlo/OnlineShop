@@ -15,7 +15,15 @@
         <div class="brand">
             <p class="brand">{{product.brand}}</p>
         </div>
-        <div class="name">
+        <div class="name__with__discount" v-if="isSale">
+            <div class="name">
+                <p class="name">{{product.name}}</p>
+            </div>
+            <div class="discount">
+                <div class="discount__block"><p>{{product.discount}}%</p></div>
+            </div>
+        </div>
+        <div class="name" v-else>
             <p class="name">{{product.name}}</p>
         </div>
     </div>
@@ -41,13 +49,14 @@ export default ({
     },
     methods: {
         sale() {
+            this.finalPrice = 0
             if(this.product.discount != 0) {
                 this.isSale = true
-                this.finalPrice = (this.product.price / 100) * this.product.discount
+                this.finalPrice = this.product.price - (this.product.price / 100) * this.product.discount
             }
         }
     },
-    async mounted() {
+    async created() {
         this.sale()
     }
 })
@@ -135,5 +144,27 @@ img {
     color: #868686;
     text-decoration: line-through;
     justify-content: center;
+}
+.name__with__discount{
+    display: flex;
+    align-items: center;
+}
+.discount {
+    justify-content: flex-end;
+    flex-grow: 1;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #FBFEFF;
+}
+.discount__block{
+    background-color: #CC0008;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 11px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 </style>

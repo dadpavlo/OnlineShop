@@ -3,6 +3,7 @@
     {
       "id": 1,
       "type": "Футболки",
+      "category": "shirt",
       "img": "shirt",
       "price": 100000,
       "name": "Футболка мужская красная",
@@ -12,15 +13,17 @@
     {
       "id": 2,
       "type": "Джинсы",
+      "category": "jeans",
       "img": "jeans",
       "price": 3000,
       "name": "Джинсы зауженные",
       "brand": "Dolche Gabana",
-      "discount": 50
+      "discount": 25
     },
     {
       "id": 3,
       "type": "Футболки",
+      "category": "shirt",
       "img": "shirt",
       "price": 2000,
       "name": "Футболка мужская красная",
@@ -30,6 +33,7 @@
     {
       "id": 4,
       "type": "Футболки",
+      "category": "shirt",
       "img": "shirt",
       "price": 2000,
       "name": "Футболка мужская красная",
@@ -39,6 +43,7 @@
     {
       "id": 5,
       "type": "Футболки",
+      "category": "shirt",
       "img": "shirt",
       "price": 100000,
       "name": "Футболка мужская красная",

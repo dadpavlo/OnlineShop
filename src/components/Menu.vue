@@ -1,7 +1,7 @@
 <template>
   <header>
       <div id = "menu" class = "menu">
-          <div class="content">
+          <div class="content" @click="$router.push({name: 'AllProducts'})">
               <p class="category">Все товары</p>
               <CategoryItem
               v-for = "category in getProductCategory" :key="category.id"

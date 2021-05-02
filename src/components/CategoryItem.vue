@@ -1,6 +1,6 @@
 <template>
-    <div class="category__item">
-        <p class="category">{{category}}</p>
+    <div class="category__item" @click="$router.push({name: 'typeProduct', params: {type: category.category}})" >
+        <p class="category">{{category.type}}</p>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 
 export default {
     props: {
-        category: String
+        category: Object
     }
 }
 </script>

@@ -20,7 +20,9 @@ export default {
     state: {
         products: [],
         productCategory: [],
-        numberOfCategories: 1
+        numberOfCategories: 1,
+        categoryProducts: []
+
     },
     mutations: {
         updateProducts(state, products) {
@@ -30,16 +32,13 @@ export default {
             let finalType = []
             let itWas = true
             type.push(state.products[0].type)
-            finalType.push(state.products[0].type)
             for (let i = 0; i < state.products.length; i++) {
                 AllCategory.push(state.products[i].type)
             }
-            console.log(AllCategory);
-            for (let i = 0; i < AllCategory.length; i++) {
-                console.log('AllCategory[i]', AllCategory[i]);
+            for (let i = 0; i < state.products.length; i++) {
                 for (let j = 0; j < type.length; j++) {
                     console.log('type[j]', type[j]);
-                    if (AllCategory[i] != type[j]) {
+                    if (state.products[i].type != type[j]) {
                         itWas = false
                     } else (
                         itWas = true
@@ -47,13 +46,38 @@ export default {
                 }
                 if (itWas == false) {
                     console.log(AllCategory[i], 'добавлен');
-                    finalType.push(AllCategory[i])
+                    let category = {
+                        type: state.products[i].type,
+                        category: state.products[i].category
+                    }
+                    finalType.push(category)
                     state.numberOfCategories++
                 }
             }
+            let category = {
+                type: state.products[0].type,
+                category: state.products[0].category
+            }
+            finalType.push(category)
             console.log(finalType);
             console.log(state.numberOfCategories);
             state.productCategory = finalType
+        },
+        categoryProducts(state, category) {
+            console.log('categoryProducts');
+            let arr = []
+            console.log('category', category);
+            console.log('state.products.length', state.products.length);
+            for (let i = 0; i < state.products.length; i++) {
+                if(state.products[i].category == category) {
+                    console.log('state.products[i].type', state.products[i].category);
+                    arr.push(state.products[i])
+                }
+                
+            }
+            state.categoryProducts = arr
+            console.log('arr', arr);
+            console.log('state.categoryProducts', state.categoryProducts);
         }
     },
     getters: {
@@ -62,6 +86,9 @@ export default {
         },
         getProductCategory(state) {
             return state.productCategory
+        },
+        getCategoryProducts(state) {
+            return state.categoryProducts
         }
     }
 }
