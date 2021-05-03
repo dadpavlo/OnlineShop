@@ -1,12 +1,12 @@
 <template>
     <div class="page">
-        <div class="content">
+        <loader v-if="!isLoad"/>
+        <div class="content" v-else>
             <div class="products">
                 <p>ВСЕ ТОВАРЫ</p>
             </div>
             <div class="all__products">
-                <div class="loader" v-if="!isLoad"></div>
-                <product-item v-else
+                <product-item
                 v-for="product in getProducts" :key="product.id"
                 :product = "product"
                 />
@@ -16,18 +16,23 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import ProductItem from '../components/ProductItem.vue';
+import Loader from '../components/Loader.vue'
+import { mapGetters } from "vuex"
+import ProductItem from '../components/ProductItem.vue'
+
 export default {
     components: {
-        ProductItem
+        ProductItem,
+        Loader
     },
     data() {
         return {
             isLoad: false
         }
     },
+    
     async created() {
+        this.isLoad = false
         await this.$store.dispatch('fetchProducts')
         this.isLoad = true
     }, 
@@ -45,7 +50,6 @@ export default {
     background-color: rgba(245, 245, 245, 1);
     width: 100%;
     min-height: 100vh;
-    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +57,7 @@ export default {
 }
 .all__products {
     display: grid;  
-    grid-template-rows:  auto; /* 3 строки */
+    grid-template-rows:  auto;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     min-height: 100vh;
 }
@@ -77,43 +81,5 @@ export default {
     margin: 0;
     max-width: 1100px;
     flex-direction: column;
-}
-.loader {
-  margin: 6em auto;
-  font-size: 10px;
-  position: relative;
-  text-indent: -9999em;
-  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-left: 1.1em solid #ffffff;
-  -webkit-animation: load8 1.1s infinite linear;
-  animation: load8 1.1s infinite linear;
-}
-.loader,
-.loader:after {
-  border-radius: 50%;
-  width: 10em;
-  height: 10em;
-}
-@-webkit-keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
     <div class="page">
-        <div class="content">
+        <loader v-if="!isLoad"/>
+        <div class="content" v-else>
             <div class="img">
                 <img :src = "progectImage" :alt = "progectImage" >
             </div>
@@ -54,10 +55,12 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex"
+import Loader from '../components/Loader.vue'
 
 export default {
     components: {
-    }, 
+        Loader
+    },
     methods: {
         ...mapMutations(['elementById']),
         sale() {
@@ -70,26 +73,26 @@ export default {
     },
     computed: {
         ...mapGetters(['getElementById']),
-    },
-    // async mounted() {
-    //     await this.$store.dispatch('fetchProducts')
-    // }, 
+    }, 
     data() {
         return {
             progectImage: "",
             finalPrice: 0,
             isSale: false,
+            isLoad: false
         }
     },
     watch: {
     '$route.params.id': {
         immediate: true,
         async handler() {
+            this.isLoad = false
             await this.$store.dispatch('fetchProducts')
             await this.elementById(this.$route.params.id)
             await this.sale()
             const fileName = this.getElementById.img
-            this.progectImage = require(`../assets/${fileName}.png`);
+            this.progectImage = require(`../assets/${fileName}.png`)
+            this.isLoad = true
         },
         
     },
@@ -154,8 +157,6 @@ img {
     font-weight: 500;
     font-size: 28px;
     line-height: 33px;
-    /* identical to box height */
-
     display: flex;
     align-items: center;
 
@@ -174,8 +175,6 @@ button {
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    /* or 133% */
-
     display: flex;
     align-items: center;
     text-align: center;
@@ -200,8 +199,6 @@ button {
     font-weight: 300;
     font-size: 18px;
     line-height: 21px;
-    /* identical to box height */
-
     display: flex;
     align-items: center;
 

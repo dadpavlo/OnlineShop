@@ -1,6 +1,6 @@
 <template>
   <header>
-      <div id = "menu" class = "menu">
+      <div id = "menu" class = "menu" v-if="isLoad">
           <div class="content">
               <p class="category" @click="$router.push({name: 'AllProducts'})">Все товары</p>
               <CategoryItem
@@ -17,11 +17,20 @@ import { mapGetters } from 'vuex'
 import CategoryItem from './CategoryItem';
 
 export default {
-  name: 'Menu',
-  components: {
+    name: 'Menu',
+    components: {
       CategoryItem
-  },
-  computed: {
+    },
+    data() {
+        return {
+            isLoad: false
+        }
+    },
+    async mounted() {
+        await this.$store.dispatch('fetchProducts')
+        this.isLoad = true
+    },
+    computed: {
       ...mapGetters(['getProductCategory'])
   }
 }

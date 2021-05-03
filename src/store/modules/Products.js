@@ -3,6 +3,7 @@ export default {
     actions: {
         async fetchProducts({commit}) {
             return new Promise((resolve, reject) => {
+                setTimeout(() => {
                 axios
                     .get('http://localhost:3000/products')
                     .then(response => {
@@ -13,6 +14,7 @@ export default {
                     .catch(error => {
                         reject(error);
                     });
+                    }, 1500)
                 }
             )
         }
