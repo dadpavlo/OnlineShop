@@ -2,7 +2,7 @@
     <div class="page">
         <div class="content">
             <div class="products">
-                <p>ВСЕ ТОВАРЫ</p>
+                <p>{{getCategoryProducts[0].type}}</p>
             </div>
             <div class="all__products">
                 <product-item
@@ -23,14 +23,23 @@ export default {
     },
     async mounted() {
        await this.$store.dispatch('fetchProducts')
-        this.categoryProducts(this.$route.params.type)
+       await this.categoryProducts(this.$route.params.type)
     }, 
     methods: {
         ...mapMutations(['categoryProducts'])
     },
     computed: {
         ...mapGetters(['getCategoryProducts'])
-    }
+    },
+    watch: {
+    '$route.params.type': {
+        immediate: true,
+        async handler() {
+        await this.$store.dispatch('fetchProducts')
+        await this.categoryProducts(this.$route.params.type)
+        },
+    },
+    },
 }
 </script>
 

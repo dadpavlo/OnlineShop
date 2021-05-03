@@ -5,7 +5,8 @@
                 <p>ВСЕ ТОВАРЫ</p>
             </div>
             <div class="all__products">
-                <product-item
+                <div class="loader" v-if="!isLoad"></div>
+                <product-item v-else
                 v-for="product in getProducts" :key="product.id"
                 :product = "product"
                 />
@@ -21,8 +22,14 @@ export default {
     components: {
         ProductItem
     },
+    data() {
+        return {
+            isLoad: false
+        }
+    },
     async created() {
-    this.$store.dispatch('fetchProducts')
+        await this.$store.dispatch('fetchProducts')
+        this.isLoad = true
     }, 
     methods: {
     },
@@ -32,7 +39,7 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style scoped>
 
 .page {
     background-color: rgba(245, 245, 245, 1);
@@ -70,5 +77,43 @@ export default {
     margin: 0;
     max-width: 1100px;
     flex-direction: column;
+}
+.loader {
+  margin: 6em auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #ffffff;
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 </style>

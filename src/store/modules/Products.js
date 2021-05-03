@@ -21,7 +21,8 @@ export default {
         products: [],
         productCategory: [],
         numberOfCategories: 1,
-        categoryProducts: []
+        categoryProducts: [],
+        getElementById: []
 
     },
     mutations: {
@@ -37,7 +38,6 @@ export default {
             }
             for (let i = 0; i < state.products.length; i++) {
                 for (let j = 0; j < type.length; j++) {
-                    console.log('type[j]', type[j]);
                     if (state.products[i].type != type[j]) {
                         itWas = false
                     } else (
@@ -45,7 +45,6 @@ export default {
                     )
                 }
                 if (itWas == false) {
-                    console.log(AllCategory[i], 'добавлен');
                     let category = {
                         type: state.products[i].type,
                         category: state.products[i].category
@@ -59,15 +58,10 @@ export default {
                 category: state.products[0].category
             }
             finalType.push(category)
-            console.log(finalType);
-            console.log(state.numberOfCategories);
             state.productCategory = finalType
         },
         categoryProducts(state, category) {
-            console.log('categoryProducts');
             let arr = []
-            console.log('category', category);
-            console.log('state.products.length', state.products.length);
             for (let i = 0; i < state.products.length; i++) {
                 if(state.products[i].category == category) {
                     console.log('state.products[i].type', state.products[i].category);
@@ -76,8 +70,21 @@ export default {
                 
             }
             state.categoryProducts = arr
-            console.log('arr', arr);
-            console.log('state.categoryProducts', state.categoryProducts);
+        },
+        elementById(state, id) {
+            this.dispatch('fetchProducts')
+            console.log(state.products);
+            console.log('elementById');
+            console.log(id);
+            let arr = []
+            for (let i = 0; i < state.products.length; i++) {
+                if(state.products[i].id == id) {
+                    arr = state.products[i]
+                }
+                
+            }
+            console.log(arr);
+            state.getElementById = arr
         }
     },
     getters: {
@@ -89,6 +96,9 @@ export default {
         },
         getCategoryProducts(state) {
             return state.categoryProducts
+        },
+        getElementById(state) {
+            return state.getElementById
         }
     }
 }

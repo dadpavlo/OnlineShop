@@ -1,8 +1,8 @@
 <template>
   <header>
       <div id = "menu" class = "menu">
-          <div class="content" @click="$router.push({name: 'AllProducts'})">
-              <p class="category">Все товары</p>
+          <div class="content">
+              <p class="category" @click="$router.push({name: 'AllProducts'})">Все товары</p>
               <CategoryItem
               v-for = "category in getProductCategory" :key="category.id"
               :category = "category"
@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .menu {
     width: 100%;
     height: 44px;
@@ -41,10 +41,11 @@ export default {
     line-height: 19px;
     margin-left: 11%;
     display: flex;
-    width: 17.8%;
+    min-width: 17.8%;
     justify-content: space-between;
 }
 .category {
+    padding: 5px;
     flex-wrap: nowrap;
     display: flex;
     align-items: center;

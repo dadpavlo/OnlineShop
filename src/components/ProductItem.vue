@@ -1,6 +1,6 @@
 <template>
-    <div class="product__item">
-        <img :src = "Image" :alt = "progectImage" >
+    <div class="product__item" @click="$router.push({name: 'productPage', params: {id: product.id}})" >
+        <div class="img"><img :src = "Image" :alt = "progectImage" ></div>
         <div class="sale" v-if="isSale">
             <div class="final__price">
                 <p>{{finalPrice}} руб.</p>
@@ -81,6 +81,7 @@ export default ({
     margin: 10.5px;
 }
 img {
+    min-width: 220px;
     max-width: 256px;
     width: 100%;
     cursor: pointer;
@@ -166,5 +167,8 @@ img {
     margin-top: 11px;
     padding-top: 2px;
     padding-bottom: 2px;
+}
+.img {
+    height: 291px;
 }
 </style>

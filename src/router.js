@@ -2,6 +2,7 @@ import Router from 'vue-router'
 import Vue from 'vue'
 import AllProducts from './pages/AllProducts.vue'
 import ProductCategory from './pages/ProductCategory.vue';
+import ProductPage from './pages/ProductPage.vue';
 import MainPage from './pages/MainPage.vue';
 
 
@@ -22,7 +23,12 @@ export default new Router ({
                     path: '/type:type',
                     name: 'typeProduct',
                     component: ProductCategory
-                }
+                },
+                {
+                    path: '/:id',
+                    name: 'productPage',
+                    component: ProductPage
+                },
             ]
             
         },

@@ -8,7 +8,12 @@
       "price": 100000,
       "name": "Футболка мужская красная",
       "brand": "Lamborghiny",
-      "discount": 0
+      "discount": 0,
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "season": "лето",
+      "country": "Индия"
     },
     {
       "id": 2,
@@ -18,7 +23,12 @@
       "price": 3000,
       "name": "Джинсы зауженные",
       "brand": "Dolche Gabana",
-      "discount": 25
+      "discount": 25,
+      "gender": "женский",
+      "color": "синий",
+      "material": "джинса",
+      "season": "лето",
+      "country": "Индия"
     },
     {
       "id": 3,
@@ -28,7 +38,12 @@
       "price": 2000,
       "name": "Футболка мужская красная",
       "brand": "Lamborghiny",
-      "discount": 0
+      "discount": 0,
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "season": "лето",
+      "country": "Индия"
     },
     {
       "id": 4,
@@ -38,7 +53,12 @@
       "price": 2000,
       "name": "Футболка мужская красная",
       "brand": "Lamborghiny",
-      "discount": 50
+      "discount": 50,
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "season": "лето",
+      "country": "Индия"
     },
     {
       "id": 5,
@@ -48,7 +68,27 @@
       "price": 100000,
       "name": "Футболка мужская красная",
       "brand": "Lamborghiny",
-      "discount": 0
+      "discount": 0,
+      "gender": "мужской",
+      "color": "красный",
+      "material": "хлопок",
+      "season": "лето",
+      "country": "Индия"
+    },
+    {
+      "id": 6,
+      "type": "Обувь",
+      "category": "cross",
+      "img": "cross",
+      "price": 4000,
+      "name": "Кроссовки женские",
+      "brand": "Dolche Gabana",
+      "discount": 30,
+      "gender": "женский",
+      "color": "белый",
+      "material": "не указано",
+      "season": "лето",
+      "country": "Индия"
     }
   ]
 }

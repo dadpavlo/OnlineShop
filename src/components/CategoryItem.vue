@@ -13,8 +13,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .category__item {
+    padding: 5px;
     flex-wrap: nowrap;
     display: flex;
     align-items: center;
