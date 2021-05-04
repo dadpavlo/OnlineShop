@@ -89,6 +89,21 @@
       "material": "не указано",
       "season": "лето",
       "country": "Индия"
+    },
+    {
+      "id": 7,
+      "type": "Украшения",
+      "category": "kolie",
+      "img": "kolie",
+      "price": 3000,
+      "name": "Колье SOKOLOV",
+      "brand": "SOKOLOV",
+      "discount": 15,
+      "gender": "женский",
+      "color": "белый",
+      "material": "серебро",
+      "season": "лето",
+      "country": "Индия"
     }
   ]
 }
