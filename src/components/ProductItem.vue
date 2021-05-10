@@ -74,7 +74,6 @@ export default ({
     display: flex;
     align-items: center;
     text-transform: lowercase;
-
     color: #3C3C3C;
 }
 .product__item {
@@ -128,7 +127,6 @@ img {
     display: flex;
     align-items: center;
     text-transform: lowercase;
-
     color: #BA1219;
 }
 .price__without__discount {

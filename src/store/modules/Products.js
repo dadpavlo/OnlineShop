@@ -14,7 +14,7 @@ export default {
                     .catch(error => {
                         reject(error);
                     });
-                    }, 1500)
+                    }, 1000)
                 }
             )
         }

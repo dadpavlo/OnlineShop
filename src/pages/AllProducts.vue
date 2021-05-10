@@ -30,7 +30,6 @@ export default {
             isLoad: false
         }
     },
-    
     async created() {
         this.isLoad = false
         await this.$store.dispatch('fetchProducts')

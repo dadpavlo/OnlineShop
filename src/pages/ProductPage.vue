@@ -20,7 +20,7 @@
                         <p>{{finalPrice}} руб.</p>
                     </div>
                 </div>
-                <div class="price" v-else></div>
+                <div class="price" v-else><p>{{getElementById.price}} руб.</p></div>
                 <div class="add__to__cart">
                     <button><p>Добавить в корзину</p></button>
                 </div>
@@ -135,7 +135,6 @@ img {
     margin-top: 16px;
     display: flex;
     align-items: center;
-
     color: #3C3C3C;
 
 }
@@ -159,7 +158,6 @@ img {
     line-height: 33px;
     display: flex;
     align-items: center;
-
     color: #B61118;
 }
 button {
@@ -168,6 +166,8 @@ button {
     border-radius: 2px;
     border: none;
     outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .add__to__cart p{
     padding: 7px;
@@ -181,7 +181,6 @@ button {
     letter-spacing: 0.16px;
     text-transform: uppercase;
     font-feature-settings: 'pnum' on, 'lnum' on;
-
     color: #FFFFFF;
 
 }
@@ -201,11 +200,20 @@ button {
     line-height: 21px;
     display: flex;
     align-items: center;
-
     color: #3C3C3C;
 
 }
 .img {
     margin-right: 40px;
+}
+.price {
+    margin-top: 7px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    color: #3C3C3C;
 }
 </style>
